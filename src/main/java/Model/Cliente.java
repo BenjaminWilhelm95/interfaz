@@ -23,35 +23,27 @@ public class Cliente {
             throw new IllegalArgumentException("RUT no válido");
         }
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getDireccion() {
         return direccion;
     }
-
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
     public String getTelefono() {
         return telefono;
     }
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
     public String getCorreo() {
         return correo;
     }
-
     public void setCorreo(String correo) {
         if (validarCorreo(correo)) {
             this.correo = correo;
@@ -59,11 +51,9 @@ public class Cliente {
             throw new IllegalArgumentException("Correo electrónico no válido");
         }
     }
-
     public String getRut() {
         return rut;
     }
-
     public void setRut(String rut) {
         if (validarRut(rut)) {
             this.rut = rut;
@@ -71,14 +61,12 @@ public class Cliente {
             throw new IllegalArgumentException("RUT no válido");
         }
     }
-
     private boolean validarCorreo(String correo) {
         return correo.contains("@");
     }
-
     private boolean validarRut(String rut) {
-        rut = rut.replace("-", "").replace(".", "").toUpperCase();
-        if (!rut.matches("\\d{1,8}-[Kk\\d]")) {
+        rut = rut.replace("-", "").replace(".", "").replace(" ", "").toUpperCase();
+        if (!rut.matches("\\d{7,8}-[K0-9]")) {
             return false;
         }
         char dvIngresado = rut.charAt(rut.length() - 1);

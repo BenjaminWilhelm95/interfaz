@@ -96,7 +96,7 @@ public class AutomotoraGUI {
         ventanaAgregarCliente.add(correoField);
         ventanaAgregarCliente.add(new JLabel("RUT:"));
         ventanaAgregarCliente.add(rutField);
-        ventanaAgregarCliente.add(new JLabel()); // Espacio en blanco
+        ventanaAgregarCliente.add(new JLabel());
         ventanaAgregarCliente.add(agregarButton);
         ventanaAgregarCliente.setVisible(true);
     }
@@ -167,8 +167,6 @@ public class AutomotoraGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String marcaBusqueda = marcaBusquedaField.getText();
-
-                // Realiza la búsqueda de vehículos por marca aquí
                 List<Vehiculo> resultados = new ArrayList<>();
                 for (Vehiculo vehiculo : vehiculos) {
                     if (vehiculo.getMarca().equalsIgnoreCase(marcaBusqueda)) {
